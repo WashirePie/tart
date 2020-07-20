@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tart", "Tart.csproj", "{29F1FF19-23F6-4F5E-BD25-E5C0792653E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29F1FF19-23F6-4F5E-BD25-E5C0792653E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29F1FF19-23F6-4F5E-BD25-E5C0792653E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29F1FF19-23F6-4F5E-BD25-E5C0792653E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29F1FF19-23F6-4F5E-BD25-E5C0792653E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8726A603-7813-45EF-BC51-B841FCD7CF71}
+	EndGlobalSection
+EndGlobal
