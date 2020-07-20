@@ -46,7 +46,9 @@ namespace Tart
 
             #endregion
 
-            File.WriteAllText($"{App.FilePath}.tart", ConvertedText, Encoding.UTF8);
+            string OutFilePath = $"{App.FilePath}.tart{Path.GetExtension(App.FilePath)}";
+            File.WriteAllText(OutFilePath, ConvertedText, Encoding.UTF8);
+
         }
 
         public static void FormatSine()
@@ -100,20 +102,21 @@ namespace Tart
 
     class AppParams
     {
-        public string Mode = "-tan";
+        public string Mode = "-sine";
         public List<int> Params = new List<int>();
         public int ParamUBound = 200;
         public int ParamLBound = 1;
         public string FilePath = "";
+        public List<int> ParamInitValues = new List<int> { 20, 4 };
 
         public AppParams(string[] arguments)
         {
             // 10, 30  for Stair
             // 20, 4   for Sine
             // 20, 30  for Tangential
-            // 5, 100 for Blocks
-            Params.Add(20);
-            Params.Add(30);
+            // 5, 100  for Blocks
+            Params.Add(ParamInitValues[0]);
+            Params.Add(ParamInitValues[1]);
 
             if (arguments.Length < 1) PlotAppUsage(0);
 
@@ -147,18 +150,27 @@ namespace Tart
         {
             Console.WriteLine($"usage: tart.exe [-mode] [-p1] [-p2] [-file]");
             Console.WriteLine($"");
-            Console.WriteLine($" [-mode] specifies the mode of this tool");
-            Console.WriteLine($"         nothing (defaults to '-stair') ");
-            Console.WriteLine($"         -stair     create a staircase pattern");
-            Console.WriteLine($"         -sine      create a sinewave pattern");
-            Console.WriteLine($"         -tan       create a tangentual pattern");
-            Console.WriteLine($" [-p1] parameter 1, used to adjust stair amount, sine amplitude or tan zero offset");
-            Console.WriteLine($"         nothing (default value)");
-            Console.WriteLine($"         {ParamLBound} to {ParamUBound}");
-            Console.WriteLine($" [-p2] parameter 2, used to adjust stair inset, sine period or tan width");
-            Console.WriteLine($"         nothing (default value)");
-            Console.WriteLine($"         {ParamLBound} to {ParamUBound}");
-            Console.WriteLine($" [-file] specifies the path to the desired text file.");
+            Console.WriteLine($" [-mode]    specifies the mode of this tool");
+            Console.WriteLine($"            nothing (defaults to '{Mode}') ");
+            Console.WriteLine($"            -stair     create a staircase pattern");
+            Console.WriteLine($"                       optionally, p1 defines the amount of lines which form a staircase");
+            Console.WriteLine($"                       optionally, p2 defines left-side whitespace padding");
+            Console.WriteLine($"            -sine      create a sinewave pattern");
+            Console.WriteLine($"                       optionally, p1 defines the sine amplitude");
+            Console.WriteLine($"                       optionally, p2 defines the sine period");
+            Console.WriteLine($"            -tan       create a tangentual pattern");
+            Console.WriteLine($"                       optionally, p1 defines the tangentual zero offset");
+            Console.WriteLine($"                       optionally, p2 defines the tanget width");
+            Console.WriteLine($"            -blocks    create a staircase pattern");
+            Console.WriteLine($"                       optionally, p1 defines line amount per block");
+            Console.WriteLine($"                       optionally, p2 defines max left-side whitespace padding");
+            Console.WriteLine($" [-p1]      parameter 1");
+            Console.WriteLine($"                       nothing (defaults to {ParamInitValues[0]})");
+            Console.WriteLine($"                       permitted values range from {ParamLBound} to {ParamUBound}");
+            Console.WriteLine($" [-p2]      parameter 2");
+            Console.WriteLine($"                       nothing (defaults to {ParamInitValues[1]})");
+            Console.WriteLine($"                       permitted values range from {ParamLBound} to {ParamUBound}");
+            Console.WriteLine($" [-file]    specifies the path to the desired text file.");
             Console.ReadLine();
             Environment.Exit(ExitCode);
         }
