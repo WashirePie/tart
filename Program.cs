@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using CustomExtensions;
 
-namespace Tart
+namespace tart
 {
     public delegate void FormatFunction();
 
