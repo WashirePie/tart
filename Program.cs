@@ -161,7 +161,7 @@ namespace Tart
             Console.WriteLine($"            -tan       create a tangentual pattern");
             Console.WriteLine($"                       optionally, p1 defines the tangentual zero offset");
             Console.WriteLine($"                       optionally, p2 defines the tanget width");
-            Console.WriteLine($"            -blocks    create a staircase pattern");
+            Console.WriteLine($"            -blocks    create a block pattern");
             Console.WriteLine($"                       optionally, p1 defines line amount per block");
             Console.WriteLine($"                       optionally, p2 defines max left-side whitespace padding");
             Console.WriteLine($" [-p1]      parameter 1");
