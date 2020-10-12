@@ -1,9 +1,9 @@
-# tart - Text Art
+# tart - text art
 A console based tool to format C-style source code files in a useless way. 
 
-## How to
+## how to
 Drag & Drop a C-style source code file on the tart executable.
 
-## Usage
+## usage
 Execute tart.exe without arguments to receive the current usage information.
 
